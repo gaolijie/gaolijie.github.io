@@ -2,14 +2,17 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>许愿小向导</title>
+		<title>许院小向导</title>
 		<link rel="stylesheet" type="text/css" href="css/homePage2.css"/>
 		<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/amazeui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/easyui.css"/>
 		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.fullPage.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/amazeui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.easyui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/easyui-lang-zh_CN.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div class="header">
@@ -21,18 +24,18 @@
 		</div>
 		
 		<!--登陆框-->
-			<form action="mainPage.html">
+			<form class="loginForm" action="mainPage.html">
 				<div class="login-box">
 					<span class="login-head">登&nbsp;&nbsp;录</span>
 					<a href="#" class="login-close am-close am-close-spin am-icon-times am-icon-sm"></a>
 					<div class="am-input-group am-input-group-primary">
 					  <span class="am-input-group-label"><i class="am-icon-user"></i></span>
-					  <input type="text" class="am-form-field" placeholder="请输入用户名">
+					  <input type="text" class="am-form-field easyui-validatebox" data-options="required:true" placeholder="请输入用户名">
 					</div>
 					
 					<div class="am-input-group am-input-group-secondary">
 					  <span class="am-input-group-label"><i class="am-icon-lock"></i></span>
-					  <input type="text" class="am-form-field" placeholder="请输入密码">
+					  <input type="text"  class="am-form-field easyui-validatebox" data-options="required:true,validType:'length[6,30]'" placeholder="请输入密码">
 					</div>
 					<div class="am-form-group">
 					    <div class="am-u-sm-offset-1 am-u-sm-10">
@@ -67,14 +70,14 @@
 				<div class="am-g">
 				  <div class="am-u-md-8 am-u-sm-centered">
 				  	
-				    <form class="am-form" action="mainPage.html">
+				    <form class="am-form">
 				      <fieldset class="am-form-set">
-				        <input type="text" class="am-input-lg" placeholder="取个名字">
-				        <input type="text" class="am-input-lg" placeholder="设个密码">
-				        <input type="email" class="am-input-lg" placeholder="填下邮箱">
+				        <input type="text" class="am-input-lg easyui-validatebox" data-options="required:true" placeholder="取个名字">
+				        <input type="text" class="am-input-lg easyui-validatebox" data-options="required:true,validType:'length[6,30]'" placeholder="设个密码">
+				        <input type="email" class="am-input-lg easyui-validatebox" data-options="required:true,validType:'email'" placeholder="填下邮箱">
 				      </fieldset>
 				      <input class="am-input-lg" type="checkbox"> 我已阅读并同意用户协议
-				      <button type="submit" class="am-btn am-btn-primary am-btn-block">注册个账号</button>
+				      <button class="am-btn am-btn-primary am-btn-block register-submit">注册个账号</button>
 				    </form>
 				  </div>
 				</div>
@@ -177,10 +180,13 @@
 		function login(){
 			$(".entry-login a").click(function(){
 				$(".login-box").show()
+				$(".register-box").hide()
+			})
+			$(".loginForm").draggable({
+				handle : '.login-head',
 			})
 			loginClose()
 		}
-		
 		function loginClose(){
 			$(".login-close").click(function(){
 				$(".login-box").hide()
@@ -190,8 +196,19 @@
 		function register(){
 			$(".entry-register").click(function(){
 				$(".register-box").show()
+				$(".login-box").hide()
 			})
+			$(".register-box").draggable({
+				handle : '.register-head',
+			})
+			registerSubmit()
 			registerClose()
+		}
+		function registerSubmit(){
+			$(".register-submit").click(function(){
+				$(".register-box").hide()
+				$(".login-box").show()
+			})
 		}
 		function registerClose(){
 			$(".register-close").click(function(){
