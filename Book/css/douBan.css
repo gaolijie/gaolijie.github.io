@@ -1,0 +1,59 @@
+*{margin: 0;padding: 0;}
+#main{    width: 90%;height: 70%;margin: 0 auto;overflow: auto;border:1px solid #ccc;box-shadow: 0 0 15px cadetblue;border-radius: 5px;}
+i{font-family: "微软雅黑";font-weight: 600;color:midnightblue;font-style: normal;}
+input{width:150px;height:22px;}
+span{font-size:17px;line-height: 20px;font-family: "微软雅黑";font-weight: 500;}
+#search{width:80px;height:28px;boder:none;box-shadow: 0 0 5px cadetblue;border-radius: 3px;}
+.doubanDiv{float: left;margin: 10px 30px;width: 100px;height: 240px;overflow: hidden;}
+a{text-decoration: none;}
+#preloader {
+    position: fixed;
+    top: 300px;
+    left: 650px;
+    width: 10%;
+    height: 10%;
+    z-index: 1000;
+}
+#preloader #preloader-inner {
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+    animation: spin 2s linear infinite;
+}
+#preloader #preloader-inner:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+    animation: spin 3s linear infinite;
+}
+#preloader #preloader-inner:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+    animation: spin 1.5s linear infinite;
+}
+@keyframes spin {
+    0% {
+    transform: rotate(0deg);
+}
+to {
+    transform: rotate(1turn);
+}
+}

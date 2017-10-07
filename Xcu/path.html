@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>路线规划</title>
+		<link rel="stylesheet" type="text/css" href="css/mainPage.css"/>
+		<link rel="stylesheet" type="text/css" href="css/amazeui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/path.css"/>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=IGXfZnoEEuXRl3Arf9nR26XeSvL0VvQi"></script>
+		<script src="js/amazeui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/BaiDuMapCommon.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.easyui.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="main">
+			<div id="head">
+				<div class="headcenter">
+					<div class="centerleft">
+						<img src="img/logo.png"/>
+						<img src="img/logo-name.png"/>
+					</div>
+					<ul class="centerright">
+						<li><a href="mainPage.html">首页</a></li>
+						<li><a href="path.html">路线规划</a></li>
+						<li><a href="hot.html">兴趣点</a></li>
+						<li><a href="">查快递</a></li>
+						<li><a href="leaveMessage.html">留言</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="map"></div>
+			<div class="route">
+				<div class="searchBox">
+					<div class="searchBoxHead">
+						<span>请输入起点和终点</span>
+						<i class="am-close am-close-spin am-icon-times"></i>
+					</div>
+					<div class="searchBoxContent">
+						<form class="am-form am-form-horizontal">
+						  <div class="am-form-group">
+						    <label for="doc-ipt-3" class="am-u-sm-3 am-form-label">起点</label>
+						    <div class="am-u-sm-9">
+						      <input type="text" id="start" placeholder="输入起点">
+						    </div>
+						  </div>
+						
+						  <div class="am-form-group">
+						    <label for="doc-ipt-pwd-2" class="am-u-sm-3 am-form-label">终点</label>
+						    <div class="am-u-sm-9">
+						      <input type="text" id="end" placeholder="输入终点">
+						    </div>
+						  </div>
+						
+						  <div class="am-form-group">
+						    <div class="am-u-sm-10 am-u-sm-offset-1">
+						      	<input type="button" id="bus" value="公交" />
+								<input type="button" id="walk" value="步行" />
+								<input type="button" id="car" value="驾车" />
+						    </div>
+						  </div>
+						</form>
+					</div>
+				</div>
+				<div id="routeResult">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		//屏幕自适应
+		zishiying(".main")
+		function zishiying(who){
+			var pingmukuan = $(window).width();
+			var pingmugao = $(window).height();
+			$(who).width(pingmukuan);
+			$(who).height(pingmugao);
+			$("#map").height(pingmugao-80);
+			
+			$(window).resize(function(){
+				var pingmukuan = $(window).width();
+				var pingmugao = $(window).height();
+				$(who).width(pingmukuan);
+				$(who).height(pingmugao);
+				$("#map").height(pingmugao-80);
+			})
+		}
+		//地图
+		var map = new BMap.Map("map");    
+		map.centerAndZoom(new BMap.Point(113.83531246,34.02673959), 14);  
+		map.addControl(new BMap.MapTypeControl());  
+		map.setCurrentCity("许昌");         
+		map.enableScrollWheelZoom(true);     
+		map.setDefaultCursor("url('bird.cur')");  
+		
+		//路线规划
+		//鼠标拖拽
+		$('.route').draggable({
+			handle : '.searchBoxHead',
+		})
+		//公交路线规划
+		$('#bus').click(function() {
+			$('#routeResult').html('').show()
+			var str = $('#start').val();
+			var end = $('#end').val();
+			searchRoad2(str, end,'routeResult');
+		})
+	
+		//步行路线规划
+		$('#walk').click(function() {
+			$('#routeResult').html('').show()
+			var str = $('#start').val();
+			var end = $('#end').val();
+			searchRoad(str, end,'routeResult');
+		})
+	
+		//驾车路线规划
+		$("#car").click(function() {
+			$('#routeResult').html('').show()
+			var str = $('#start').val();
+			var end = $('#end').val();
+			searchRoad3(str, end,'routeResult');
+		})
+		//关闭搜索框
+		searchClose()
+		function searchClose(){
+			$(".searchBoxHead .am-close").click(function(){
+				$(".searchBox").hide()
+				$("#routeResult").hide()
+			})
+		}
+	</script>
+</html>

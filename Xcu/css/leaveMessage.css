@@ -1,0 +1,114 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{text-decoration: none;}
+
+.main{
+	width: 100%;
+	height: 100%;
+}
+/*头部*/
+#head {
+	height: 80px;
+	width: 100%;
+	background-color: #fff;
+}
+
+.headcenter {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.centerleft {
+	float: left;
+}
+
+.centerright {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+.centerright li {
+	list-style: none;
+	display: inline-block;
+}
+
+.centerright li a {
+	color: #333;
+	display: inline-block;
+	width: 90px;
+	height: 80px;
+	line-height: 80px;
+	font-size: 18px;
+	text-align: center;
+}
+
+.centerright li:hover {
+	background-color: #ccc;
+}
+.clear{
+	clear: both;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+}
+/*内容*/
+#content{
+	
+}
+.contentBg{
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+}
+.leaveMessage{
+	width: 1000px;
+	height: 382px;
+	margin: 0 auto;
+}
+.aboutUs{
+	width: 200px;
+	height: 382px;
+	/*background-color: #0084C7;*/
+	float: left;
+	border: 1px solid #B5BBCF;
+	border-top-left-radius: 8px;
+}
+.aboutUs h3{
+	height: 40px;
+	line-height: 38px;
+	text-align: center;
+	background-color: #B5BBCF;
+	color: #fff;
+	border-top-left-radius: 8px;
+}
+.aboutUs p{
+	font: 16px  "微软雅黑";
+	color: #333;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	border-bottom: 1px dotted #ccc;
+}
+.leaveMessageContent{
+	width: 800px;
+	height: 382px;
+	float: left;
+	border: 1px solid #C9C9C9;
+	/*background-color: #89D7FF;*/
+	border-top-right-radius: 8px;
+}
+.leaveMessageContent h3{
+	height: 40px;
+	line-height: 38px;
+	color: #fff;
+	background-color: #C9C9C9;
+	text-align: center;
+	border-top-right-radius: 8px;
+}
+.submit{
+	margin-top: 10px;
+}

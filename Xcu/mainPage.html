@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="css/mainPage.css"/>
+		<link rel="stylesheet" type="text/css" href="css/amazeui.css"/>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="main">
+			<div id="head">
+				<div class="headcenter">
+					<div class="centerleft">
+						<img src="img/logo.png"/>
+						<img src="img/logo-name.png"/>
+					</div>
+					<ul class="centerright">
+						<li><a href="mainPage.html">首页</a></li>
+						<li><a href="path.html">路线规划</a></li>
+						<li><a href="hot.html">兴趣点</a></li>
+						<li><a href="">查快递</a></li>
+						<li><a href="leaveMessage.html">留言</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="mainBg">
+				<img src="img/bbb.jpg"/>
+			</div>
+			<div class="mainContent">
+				<div class="content1">
+					<img src="img/schoolMap.jpg"/>
+					<p><a href="path.html">贴心路线规划</a></p>
+				</div>
+				<div class="content2">
+					<img src="img/hotPoint.jpg"/>
+					<p><a href="hot.html">兴趣地点随心查</a></p>
+				</div>
+				<div class="content3">
+					<img src="img/kuaidi.jpg"/>
+					<p><a href="">快递信息早知道</a></p>
+				</div>
+			</div>
+			<div class="line"></div>
+			<div class="footer">
+				<span>关于我们：许昌学院贴心小向导，为您提供一系列的便利服务</span>
+				<span>许昌学院地址：中国·河南·许昌市八一路88号 邮编：461000 电话：0374-2968866</span>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//屏幕自适应
+		zishiying(".main")
+		function zishiying(who){
+			var pingmukuan = $(window).width();
+			var pingmugao = $(window).height();
+			$(who).width(pingmukuan);
+			$(who).height(pingmugao);
+			$(".footer").height(pingmugao-661);
+			
+			$(window).resize(function(){
+				var pingmukuan = $(window).width();
+				var pingmugao = $(window).height();
+				$(who).width(pingmukuan);
+				$(who).height(pingmugao);
+//				$(".footer").height(pingmugao-661);
+			})
+		}
+	</script>
+</html>

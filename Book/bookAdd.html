@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我要漂书</title>
+		<link rel="stylesheet" type="text/css" href="css/vister.css"/>
+		<script src="libs/jquery-1.7.1.min.js" type="text/javascript"></script>
+	    <script type="text/javascript" src="js/jquery.easyui.min.js" ></script>
+	    <script src="libs/OpenLayers.js" type="text/javascript"></script>
+	    <script src="libs/zdclient.js" type="text/javascript"></script>
+	    <script type="text/javascript" src="js/bookSearch.js" ></script>
+	    <script type="text/javascript" src="js/bookAdd.js" ></script>
+	    <script src="libs/plugins/ligerUI/js/ligerui.min.js" type="text/javascript"></script>
+	    <link href="libs/plugins/ligerUI/skins/Silvery/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+	    <script>
+	    	$(function(){
+				$('.bookAddDiv').draggable({handle:'.bookAddTitle' })
+	    	})
+	    	function imgOut(){
+	    		$('.bookAddDiv').fadeOut(300);
+	    	}
+	    </script>
+	</head>
+	<body>
+		<div id="bookAddBody">
+			<div id="controlMap" style="width: 400px;height: 500px;">
+				
+			</div>
+			<div class="bookAddDiv">
+				<div class="bookAddTitle">
+					<span>我要漂书</span>
+					<img src="img/close.png" alt="" onclick="imgOut()"/>
+				</div>
+				<span style="margin: 0 5px 0 15px;">请输入图书信息：</span>
+				<input type="text" id="addpointvalue" value="" style="width:240px;"/>
+				<p>
+					<span >格式：</span>
+					<span  style="background: #B8DDDA;">"书名", "作者", "分类", "联系方式","发布日期"</span>
+				</p>
+				<div class="bookAddBtn">
+					<input type="button" name="name"  id="controldianZengOK"  onclick="addControl('point');" value="选点" />
+               	    <input type="button" name="name"  id="controldianZengTui" onclick="stop();" value="取消" />
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

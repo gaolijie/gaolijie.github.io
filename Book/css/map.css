@@ -1,0 +1,81 @@
+@CHARSET "UTF-8";
+/*报备*/
+/*全局样式*/
+body{padding:0;margin:0;font-size:12px;}
+ul,li,dl,dd,form,p,h3{padding:0;margin:0;}
+a,p,h2,h3,h4,span,ul,em,li,img,table{ font-size:12px; font-family:"宋体"; text-decoration:none; list-style:none;border:none;}
+
+/* 地图工具栏 */
+.toolBox{display:inline-block;position:absolute;top:5px;right:5px;height:20px;padding:5px;z-index:9999999;}
+.btnUl{hieght:20px;float:left;background:#fff;border:1px solid #d4d4d4;padding:2px 5px;margin:0 2px;border-radius:5px;box-shadow:0 0 10px 1px #ccc;cursor:pointer;}
+.btnUl>span{font:1em/20px 微软雅黑;color:#686868;text-align:center;display:block;float:left;}
+.btnUl>img{float:left;margin:2px 0 0 0;}
+.tooltp{z-index:100000;display:block;position:absolute;top:20px;right:30px;height:16px;padding:5px;background:#fff;border:1px solid #d4d4d4;border-radius:5px;box-shadow:0 0 10px 1px #ccc;}
+.tooltp img{float:right;cursor: pointer;margin-right:10px;}
+
+.layerDiv{position:absolute;z-index:10;right:18px;bottom:1px;}
+.layerDiv>div{width:90px;height:60px;cursor:pointer;float:left;}
+.layer1{background:url(../images/Layer_vector1.png) no-repeat;border:1px solid #fff;position:relative;}
+.layer2{background:url(../images/layer_raster1.png) no-repeat;border:1px solid #fff;position:relative;}
+.layer3{background:url(../images/layer_VR1.png) no-repeat;border:1px solid #fff;position:relative;}
+.layerHover{width:90x;height:60px;border:1px solid #6c7e9d;}
+.layerSelect{border:1px solid #6c7e9d;}
+.layerTitle{display:block;background:#ccc;font:11px 微软雅黑;color:#fff;width:50px;height:18px;line-height:18px;position:absolute;right:0px;bottom:0px;text-align:center;}
+.layerTitleSelect,.layerTitleHover{background:#6c7e9d;}
+.junbiao{width:16px;height:24px;}
+
+.tooltp_{position:absolute;right:280px;top:17px;width:25px;z-index:10;}
+.tooltp_>a{background:#fff;border:1px solid #ccc;border-radius:5px;box-shadow:0 0 10px 1px #ccc;margin:2px 5px;
+			padding:2px 8px;color:#686868;font:1.1em/25px 微软雅黑;font-weight:900;float:right;cursor:pointer;}
+/* 地图-清除图标及点击样式 */
+.opIcon1{float:left;width:20px;height:20px;background:url(../images/tool1.png) no-repeat;padding-top:2px;cursor:pointer;}
+.opIcon1:hover{width:20px;height:20px;background:url(../images/tool01.png) no-repeat;}
+.opIcon1:active{width:20px;height:20px;background:url(../images/tool1.png) no-repeat;}
+/* 地图-测距图标及点击样式 */
+.opIcon2{float:left;width:20px;height:20px;background:url(../images/tool2.png) no-repeat;padding-top:2px;cursor:pointer;}
+.opIcon2:hover{width:20px;height:20px;background:url(../images/tool02.png) no-repeat;}
+.opIcon2:active{width:20px;height:20px;background:url(../images/tool2.png) no-repeat;}
+/* 地图-测面积图标及点击样式 */
+.opIcon3{float:left;width:20px;height:20px;background:url(../images/tool3.png) no-repeat;padding-top:2px;cursor:pointer;}
+.opIcon3:hover{width:20px;height:20px;background:url(../images/tool03.png) no-repeat;}
+.opIcon3:active{width:20px;height:20px;background:url(../images/tool3.png) no-repeat;}
+/* 地图-复位图标及点击样式*/
+.opIcon4{float:left;width:20px;height:20px;background:url(../images/tool4.png) no-repeat;padding-top:2px;cursor:pointer;}
+.opIcon4:hover{width:20px;height:20px;background:url(../images/tool04.png) no-repeat;}
+.opIcon4:active{width:20px;height:20px;background:url(../images/tool4.png) no-repeat;}
+/* 地图-缩小图标及点击样式*/
+.opIcon5{float:left;width:20px;height:20px;background:url(../images/tool5.png) no-repeat;padding-top:2px;cursor:pointer;}
+.opIcon5:hover{width:20px;height:20px;background:url(../images/tool05.png) no-repeat;}
+.opIcon5:active{width:20px;height:20px;background:url(../images/tool5.png) no-repeat;}
+/* 地图-放大图标及点击样式 */
+.opIcon6{float:left;width:20px;height:20px;background:url(../images/tool6.png) no-repeat;padding-top:2px;cursor:pointer;}
+.opIcon6:hover{width:20px;height:20px;background:url(../images/tool06.png) no-repeat;}
+.opIcon6:active{width:20px;height:20px;background:url(../images/tool6.png) no-repeat;}
+/* 地图-平移图标及点击样式 */
+.opIcon7{float:left;width:20px;height:20px;background:url(../images/tool7.png) no-repeat;padding-top:2px;cursor:pointer;}
+.opIcon7:hover{width:20px;height:20px;background:url(../images/tool07.png) no-repeat;}
+.opIcon7:active{width:20px;height:20px;background:url(../images/tool7.png) no-repeat;}
+/* 地图-定位图标及点击样式 */
+.opIcon8{float:left;width:20px;height:20px;background:url(../images/tool8.png) no-repeat;padding-top:2px;cursor:pointer;}
+.opIcon8:hover{width:20px;height:20px;background:url(../images/tool08.png) no-repeat;}
+.opIcon8:active{width:20px;height:20px;background:url(../images/tool8.png) no-repeat;}
+
+/* 绘制军标的图表 */
+.junbiao-list{position:absolute;right:100px;bottom:100px;}
+.junbiao-list-body{width:289px;height:320px;background:#F8F8F8;}
+.junbiao-list-top {position:relative;}
+.junbiao-list-top span{position:absolute;top:4px;left:10px;font-family:"微软雅黑";font-weight:600;color: #FEFDFE;font-size:14px;}
+.jbclose{position:absolute;top:6px;right:20px;cursor:pointer;}
+.junbiao-list-body div{ margin-bottom: 5px;}
+.junbiao-list-body p{font-family:"微软雅黑";color:#142C55;font-size:15px;font-weight:600;margin-left:10px;}
+.junbiao-list-body li {float:left;margin-left:20px;margin-top:10px;height:35px;cursor:pointer;}
+.jb-border{clear:both;border:1px solid #575757;}
+.junbiao-list-body span{color:#575757;margin:3px 0 0 12px;font-family:"微软雅黑";font-size:13px;}
+
+
+
+
+
+
+
+

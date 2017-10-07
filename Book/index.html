@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>漂流书服务平台</title>
+	<link rel="stylesheet" href="css/nheader.css">
+	<link rel="stylesheet" href="css/nstyle.css">
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+	<script>
+		function widAndHei(obj){
+			/*初始宽高*/
+			$(obj).width($(window).width());
+			$(obj).height($(window).height());
+			
+			/*窗口变化时大小*/
+			$(window).resize(function(){
+				$(obj ).width($(window).width());
+				$(obj).height($(window).height());
+			});
+		}
+		/*$(function(){
+			widAndHei('.bookMarsk');
+			$('.wsyk').click(function(){
+					$('.bookLogin').fadeIn(300);
+					$('.bookMarsk').slideDown(300);
+			})
+		})*/
+	</script>
+</head>
+<body>
+	
+	<div class="bookLogin" style="display: none;">
+		
+	</div>
+	
+	<div class="bookMarsk" style="display: none;">
+		
+	</div>
+	</div>
+	<div class="header">
+		<ul class="nav_list">
+			<li class="nav_li">
+				<a href="javascript:;" class="btn_nav" id="nav_more"><i class="ic_more png"></i>等你发现</a>
+				<div class="more_nav" id="more_nav">
+					<i class="ic_bdot png" id="h_bdot"></i>
+					<ul id="h_nav"> 
+						<li ><a href="vister.html" target="_blank" class="btn_snav">我是游客</a></li>
+						<li class="wsyk"><a href="manager.html" target="_blank" class="btn_snav">我是管理员</a></li>
+						<li>
+							<i class="ic_sdot png" id="h_sdot"></i>
+							<dl class="sub_nav" id="h_subnav">
+								<dt><a href="aboutUs.html" target="_blank" class="btn_snav">联系我们</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="wrap" id="wrap">
+		<div class="wrapper">
+			<div class="product_list" id="product_list">
+				<div class="product_box shoulei show">
+					<div class="bg_box"><img src="img/bg_shoulei.jpg"></div>
+					<div class="content">
+						<div class="main_box">
+							<h2 class="hide_txt  png">
+							</h2>
+							<a href="#"  class="btn_product" title="漂流书">快速进入</a>
+						</div>
+					</div>
+				</div>
+				<div class="product_box xnet">
+					<div class="bg_box"><img src="img/bg_xnet.jpg"></div>
+					<div class="content">
+						<div class="main_box">
+							<h2 class="hide_txt  png">
+							</h2>
+							<a href="#" class="btn_product" title="随便看看">随便看看</a>
+						</div>
+					</div>
+				</div>
+				<div class="product_box member">
+					<div class="bg_box"><img src="img/bg_member.jpg"></div>
+					<div class="content">
+						<div class="main_box">
+							<h2 class="hide_txt  png">
+							</h2>
+							<a href="#" class="btn_product" title="如此美好">如此美好</a>
+						</div>
+					</div>
+				</div>
+				<div class="product_box xkn">
+					<div class="bg_box"><img src="img/bg_xkn.jpg"></div>
+					<div class="content">
+						<div class="main_box">
+							<h2 class="hide_txt png">
+							</h2>
+							<a href="#" class="btn_product" title="豆瓣速递">豆瓣速递</a>
+						</div>
+					</div>
+				</div>
+				<div class="product_box xav">
+					<div class="bg_box"><img src="img/bg_xav.jpg"></div>
+					<div class="content">
+						<div class="main_box">
+							<h2 class="hide_txt png">
+							</h2>
+							<a href="#" class="btn_product" title="联系我们">联系我们</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="product_btns" id="product_btns">
+				<div class="content">
+					<div class="btns_area">
+						<div class="btns_box" id="control_box">
+							<a href="#" class="btn_ipr btn_shoulei cur" title="爱上阅读" ><span class="ic_shoulei hide_txt png">手机迅雷</span></a>
+							<a href="#" class="btn_xnet" title="因为懂得"><span class="ic_xnet hide_txt png">迅雷7.9</span></a>
+							<a href="#" class="btn_member" title="共享你我"><span class="ic_member hide_txt png">迅雷会员</span></a>
+							<a href="#" class="btn_xkn" title="何止是好"><span class="ic_xkn hide_txt png">迅雷快鸟</span></a>
+							<a href="#" class="btn_xav" title="大大的爱心"><span class="ic_xav hide_txt png">迅雷影音</span></a>
+							<span class="ic_line" id="ic_line"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="rpt_bg png" id="rpt_bg"></div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+<script type="text/javascript" src="js/index.js.js" ></script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js" ></script>
+	</head>
+	<body>
+	</body>
+	<script>
+		/*$.ajax({
+			type:"get",
+			url:"http://www.kuaidi100.com/query?type=shentong&postid=3339021157556",
+			dataType:'json',
+			async:true,
+			success:function(data){
+				alert(1)
+			},error:function(data){
+				console.log(data)
+			}
+		});*/
+		$.getJSON('http://www.kuaidi100.com/query?type=shentong&postid=3339021157556?callback=?,function(jsondata)'){
+			alert(1)
+		}
+        //处理获得的json数据
+	</script>
+</html>

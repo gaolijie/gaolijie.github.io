@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户留言</title>
+		<link rel="stylesheet" type="text/css" href="css/leavemessage.css"/>
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+		<script type="text/javascript" src="js/comment.js" ></script>
+	</head>
+	<body>
+		
+		
+		<div class="czArea">
+		  <div class="commentOn" id="cmton">
+		    <div class="plTitle"><img src="images/pinglun.png" /><span><a href="#">已有<em id="tiaoshu"></em>人评论</a></span></div>
+		    
+		    <div class="reply">
+		      <div class="userInfo">
+		      		<span class="userName">张四</span>
+		      		<span class="replyTime">2017-3-8 16:37:51</span>
+		      </div>
+		     <p class="replyContent"> &nbsp;&nbsp;&nbsp;&nbsp;棒棒哒。</p>
+		      <p class="operation"><a href="javascript:;" class="rLast"></a></p>
+		    </div>
+		
+		    <div class="reply">
+		      <div class="userInfo">
+		      		<span class="userName">李三</span>
+		      		<span class="replyTime">2017-4-8 11:27:51</span>
+		      </div>
+		      <p class="replyContent">&nbsp;&nbsp;&nbsp;&nbsp;通过平台找到了心仪已久的书，也认识了书友，非常好的平台，接下来我会持续的关注，另外该网站做的简洁大方，很有现代感！</p>
+		      <p class="operation"><a href="javascript:;" class="rLast"></a></p>
+		    </div>
+		
+		  </div>
+		  <!--我要评论-->
+		  <div class="takeComment">
+		    <div class="plTitle"><img src="images/woyaopinglun.png" /></div>
+		    <div class="userLogin_Reg">
+		      <p><span>用户名：</span>
+		        <input type="text" value="" id="userName" />
+		    </div>
+		    <div class="takeUserName"><span>lala</span></div>
+		    <textarea name="textarea" class="takeTextField" id="text"></textarea>
+		    <div class="takeSbmComment">
+		    	<input type="button" value="" id="tijiao" />
+		        <span>(按enter回复)</span>
+		    </div>
+		  </div>
+		</div>
+		
+		
+	</body>
+</html>

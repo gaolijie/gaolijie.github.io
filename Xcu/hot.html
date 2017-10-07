@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>兴趣点</title>
+		<link rel="stylesheet" href="css/amazeui.css" />
+		<link rel="stylesheet" type="text/css" href="css/mainPage.css"/>
+		<link rel="stylesheet" type="text/css" href="css/hot.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js" ></script>
+		<script type="text/javascript" src="js/amazeui.js" ></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=IGXfZnoEEuXRl3Arf9nR26XeSvL0VvQi"></script>
+		<script src="js/BaiDuMapCommon.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.easyui.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/**{margin: 0;padding: 0;}
+			#map{width: 100%;}
+			.hotpoint{width: 340px;position: absolute;left: 50px;top: 100px;}
+			.searchHead{height: 40px;background-color: #23CCFE;border-top-left-radius: 6px;border-top-right-radius: 6px;position: relative;}
+			.searchHead span{color: #fff;font: 20px  "微软雅黑";line-height: 40px;margin-left: 25px;}
+			.searchContent{height: 150px;background-color: #fff;border: 1px solid #23CCFE;}
+			.searchContent span{font: 18px  "微软雅黑";line-height: 40px;margin-left: 10px;}
+			.searchContent input{width: 250px;margin: 0 auto;}
+			.searchContent button{width: 130px;margin: 20px auto 0 auto;}
+			.searchHead .am-close{position: absolute;right: 5px;top: 8px;}
+			#searchResult{height: 360px;display: none;overflow: auto;border: 1px solid #23CCFE;}*/
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div id="head">
+				<div class="headcenter">
+					<div class="centerleft">
+						<img src="img/logo.png"/>
+						<img src="img/logo-name.png"/>
+					</div>
+					<ul class="centerright">
+						<li><a href="mainPage.html">首页</a></li>
+						<li><a href="path.html">路线规划</a></li>
+						<li><a href="hot.html">兴趣点</a></li>
+						<li><a href="">查快递</a></li>
+						<li><a href="leaveMessage.html">留言</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="map"></div>
+			<div class="hotpoint">
+				<div class="searchBox">
+					<div class="searchHead">
+						<span>请输入关键词</span>
+						<i class="am-close am-close-spin am-icon-times"></i>
+					</div>
+					<div class="searchContent">
+						<span>请输入所要查询的关键词</span>
+						<input type="text" class="am-form-field am-radius" placeholder="请输入关键词" />
+						<button class="am-btn am-btn-secondary am-btn-block">查询</button>
+					</div>
+				</div>
+				
+				<div id="searchResult">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		zishiying(".main")
+		function zishiying(who){
+			var pingmukuan = $(window).width();
+			var pingmugao = $(window).height();
+			$(who).width(pingmukuan);
+			$(who).height(pingmugao);
+			$("#map").height(pingmugao-80);
+			
+			$(window).resize(function(){
+				var pingmukuan = $(window).width();
+				var pingmugao = $(window).height();
+				$(who).width(pingmukuan);
+				$(who).height(pingmugao);
+				$("#map").height(pingmugao-80);
+			})
+		}
+		var map = new BMap.Map("map");    
+		map.centerAndZoom(new BMap.Point(113.83531246,34.02673959), 14);  
+		map.addControl(new BMap.MapTypeControl());  
+		map.setCurrentCity("许昌");         
+		map.enableScrollWheelZoom(true);     
+		map.setDefaultCursor("url('bird.cur')");  
+		
+		//鼠标拖拽
+		$('.hotpoint').draggable({
+			handle : '.searchHead',
+		})
+		
+        //关闭搜索框
+		searchClose()
+		function searchClose(){
+			$(".searchHead .am-close").click(function(){
+				$(".searchBox").hide()
+				$("#searchResult").hide()
+			})
+		}
+		
+		//关键字查询
+		$(".searchContent button").click(function(){
+			$("#searchResult").html('').show()
+			var keyword = $(".searchContent input").val()
+			keyWordSearch(keyword,"searchResult")
+		})
+		
+	</script>
+</html>

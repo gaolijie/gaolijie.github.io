@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>失物信息查询</title>
+    <link rel="stylesheet" href="css/vister.css" />
+    <link rel="stylesheet" href="css/map.css" />
+    <script src="libs/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.easyui.min.js" ></script>
+    <script src="libs/OpenLayers.js" type="text/javascript"></script>
+    <script src="libs/zdclient.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/bookSearch.js" ></script>
+    <script src="libs/plugins/ligerUI/js/ligerui.min.js" type="text/javascript"></script>
+    <link href="libs/plugins/ligerUI/skins/Silvery/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+</head>
+<body onload="init()">
+    <div id="seacrchquMap">
+    	<!--此处存放地图-->
+    </div>
+    <!--此处为查询条件-->
+    <div id="searchquButton">
+    	<ul>
+	    	<li onclick="query()"><img src="img/vister/book.png" title="查找图书" /></li>
+	    	<li onclick="startFlash()"><img src="img/gaoliang.png" title="高亮显示" /></li>
+	    	<li onclick="stopFlash()"><img src="img/stopliang.png" title="停止闪烁" /></li>
+	    	<li onclick="clearquery()"><img src="img/closeshow.png" title="关闭查询" /></li>
+    	</ul>
+    </div>
+    <div id="searchqushow0">
+    	<div id="searchqushow">
+    		<!--此处存放显示结果-->
+    	</div>
+    </div>
+	    
+    <div id="tooltp" class="tooltp">
+			<a class="opIcon7" title="平移" onclick=""></a>
+			<a class="opIcon6" title="放大" onclick="zoom(-1);"></a>
+			<a class="opIcon5" title="缩小" onclick="zoom(1);"></a>
+			<a class="opIcon4" title="复位" onclick="restore();"></a>
+			<a class="opIcon3" title="测面积" onclick=""></a>
+			<a class="opIcon2" title="测距" onclick=""></a>
+			<a  id="clearMap" class="opIcon1" title="清除" onclick=""></a>
+			<a  id="" class="opIcon8" title="定位" onclick=""></a>
+		</div>
+    
+</body>
+</html>
+<script type="text/javascript">
+    var map, mapDoc; //地图容器与地图文档对象
+    var geomLayer = null; //绘图图层
+    var drawControl = null; //绘图控件
+    var flashLayer = null; //临时用于存放需闪烁的要素的图层
+    var timer = null; //计时器
+    var grid = null; //查询结果表格控件
+    var gridManager = null; //查询结果表格控件管理对象
+    var CustomersData = null; //查询结果对象
+    //地图初始化函数
+
+    function init() {
+        //初始化地图容器
+        map = new OpenLayers.Map('seacrchquMap', {
+            numZoomLevels: 5,
+            maxExtent: new OpenLayers.Bounds(15124747.6608444, 4778844.00838922, 15144000.5249905, 4798200.9027251),
+            maxResolution: 30,
+            controls: [new OpenLayers.Control.Navigation()]
+        });
+        //初始化地图文档图层对象
+        layer = new Zondy.Map.Doc("MapGIS IGS MapDocLayer", "许昌市图书分享信息", {
+            ip: "127.0.0.1"
+        });
+        map.addLayers([layer]); //将地图文档图层加载到地图中
+        map.setCenter(new OpenLayers.LonLat(0, 0), 3); //设置地图的初始化显示中心和级别
+
+        //创建绘图层并添加到地图容器中
+        geomLayer = new OpenLayers.Layer.Vector("geomLayer");
+        map.addLayer(geomLayer);
+        //创建闪烁图层并添加到地图容器中
+        flashLayer = new OpenLayers.Layer.Vector("flashLayer");
+        map.addLayer(flashLayer);
+
+        //创建画多边形控件并添加在地图容器中，指定控件的回调函数featureAdded
+        drawControl = new OpenLayers.Control.DrawFeature(geomLayer, OpenLayers.Handler.Polygon);
+        drawControl.featureAdded = callback; //多边形查询的回调函数
+        map.addControl(drawControl);
+    }
+
+    function query() {
+        if (drawControl) {
+            drawControl.activate();
+            $('#searchqushow').css('display', 'block');
+        }
+    }
+
+    function callback(feature) {
+        var geomObj = new Zondy.Object.Polygon(); //初始化几何多边形对象
+        geomObj.setByOL(feature.geometry); //接收客户端绘制的多边形对象
+        geomObj.nearDis = 0.001;
+        feature.destroy();
+        var queryStruct = new Zondy.Service.QueryFeatureStruct(); //初始化查询结构对象
+        queryStruct.IncludeGeometry = true; //设置查询结构包含几何信息
+        var queryParam = new Zondy.Service.QueryParameter({
+            geometry: geomObj,
+            resultFormat: "json",
+            struct: queryStruct
+        }); //实例化查询参数对象
+        queryParam.recordNumber = 10000; //设置查询要素数目
+        var queryService = new Zondy.Service.QueryDocFeature(queryParam, "许昌市图书分享信息", 1, {
+            ip: "127.0.0.1"
+        }); //实例化地图文档查询服务对象
+        queryService.query(onSuccess); //执行查询操作，onSuccess为查询回调函数
+    }
+
+    function onSuccess(data) {
+        var a = data;
+        if (a.SFEleArray.length == 0) {
+            alert("查询结果为空");
+        } else queryResult(a, flashLayer);
+    }
+
+    function queryResult(a, m_layer) {
+        if (a == null || a.SFEleArray == null || a.SFEleArray.length <= 0) {
+            return;
+        }
+        if (m_layer == null) {
+            return;
+        }
+        var strjson = new Array(a.SFEleArray.length)
+        for (i = 0; i < a.SFEleArray.length; i++) {
+            strjson[i] = {};
+            for (k = 0; k <= a.AttStruct.FldName.length; k++) {
+                if (k == 0) {
+                    strjson[i]["FID"] = a.SFEleArray[i].FID;
+                } else {
+                    strjson[i][a.AttStruct.FldName[k - 1]] = a.SFEleArray[i].AttValue[k - 1];
+                }
+            }
+        }
+        m_layer.setVisibility(false); //设置闪烁要素图层不可见
+        createHotPoly(a, m_layer); //创建闪烁要素
+        CustomersData = {
+            Rows: strjson,
+            Total: a.SFEleArray.length
+        };
+        //设置要在表格显示的数据对象
+        var filedStr = new Array(a.AttStruct.FldName.length - 1);
+        for (var k = 0; k <= a.AttStruct.FldName.length; k++) {
+            filedStr[k] = {};
+        }
+        for (var m = 0; m <= a.AttStruct.FldName.length; m++) {
+            if (m == 0) {
+                filedStr[m]["display"] = "FID";
+                filedStr[m]["name"] = "FID";
+            } else {
+                filedStr[m]["display"] = a.AttStruct.FldName[m - 1];
+                filedStr[m]["name"] = a.AttStruct.FldName[m - 1];
+                filedStr[m]["editor"] = "text";
+            }
+            filedStr[m]["align"] = "center";
+            filedStr[m]["width"] = 60;
+        }
+        //将查询结果记录装载到表格中显示
+        if (grid != null) {
+            gridManager = $("#searchqushow").ligerGetGridManager();
+            gridManager.setOptions({
+                columns: filedStr
+            });
+            gridManager.setOptions({
+                data: CustomersData
+            });
+            gridManager.loadData();
+            return;
+        }
+        //初始化查询结果表格控件
+        grid = $("#searchqushow").ligerGrid({
+            columns: filedStr, //列
+            data: CustomersData, //表格数据
+            sortName: a.AttStruct.FldName, //列名
+            height: '280px',
+            pageSize: 10, //每页默认的结果数
+            pageSizeOptions: [15, 20, 25, 30], //可选择设定的每页结果数
+            //表格选中行事件
+            onSelectRow: function (data, rowobj, rowindex) {
+                var fid = data.FID.valueOf(); //获取当前选中行要素的FID
+                queryByID(fid); //通过要素FID查询该要素的几何信息并闪烁
+            }
+        });
+    }
+
+    function clearquery() {
+        
+        if (drawControl)
+            drawControl.deactivate();
+        $('#searchqushow').css('display', 'none');
+    }
+    //通过要素FID查询该要素的几何信息
+
+    function queryByID(id) {
+        var queryStruct = new Zondy.Service.QueryFeatureStruct();
+        queryStruct.IncludeGeometry = true;
+        var queryParam = new Zondy.Service.QueryParameter({
+            objectIds: id,
+            struct: queryStruct
+        });
+        var queryService = new Zondy.Service.QueryDocFeature(queryParam, "许昌市图书分享信息", 1);
+        queryService.query(flashOneFeatrue); //查询成功后的回调函数
+    }
+    //闪烁要素
+
+    function flashOneFeatrue(jsonObj) {
+        createHotPoly(jsonObj, flashLayer); //客户端绘制要素
+        startFlash(); //闪烁要素
+    }
+
+    function createHotPoly(jsonObj, m_layer) {
+        if (m_layer == null || jsonObj == null) {
+            return;
+        } else {
+            m_layer.removeAllFeatures();
+        }
+        if (jsonObj.SFEleArray == null || jsonObj.SFEleArray.length <= 0) {
+            return;
+        } else {
+            var format = new Zondy.Format.PolygonJSON();
+            var features = format.read(jsonObj); //解析JSON对象
+            m_layer.setVisibility(true); //设置图层可见
+            m_layer.addFeatures(features); //将要素添加到图层中
+        }
+    }
+    //开始闪烁
+
+    function startFlash() {
+        if (timer != null) {
+            clearInterval(timer); //清除计时器
+        }
+        document.getElementById('searchquButton3').disabled = true;
+        document.getElementById('searchquButton2').disabled = false;
+        timer = setInterval(toggleLayer, 500); //设置切换图层可见性的计时器
+    }
+    //切换图层的可见属性，实现闪烁效果
+
+    function toggleLayer() {
+        if (flashLayer != null) {
+            if (flashLayer.visibility) {
+                flashLayer.setVisibility(false); //隐藏闪烁要素图层
+            } else {
+                flashLayer.setVisibility(true); //显示闪烁要素图层
+            }
+        }
+    }
+    //停止闪烁
+
+    function stopFlash() {
+        document.getElementById('searchquButton3').disabled = false;
+        document.getElementById('searchquButton2').disabled = true;
+        clearInterval(timer); //清除计时器
+        flashLayer.setVisibility(false); //隐藏闪烁要素图层
+    }
+    
+    </script>

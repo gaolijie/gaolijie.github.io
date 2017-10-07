@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>管理员</title>
+		<link rel="stylesheet" href="css/vister.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+		<script src="http://www.jq22.com/jquery/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="js/vister.js" ></script>  
+		<script type="text/javascript" src="js/jquery.jqprint-0.3.js" ></script>
+		<script src="js/manager.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="main">
+			
+			<!--顶部-->
+			<div class="top">
+				<a href="index.html" target="_blank"><img class='logo' src="img/logo.png" alt="漂流书" /></a>
+				<a class='shoucang' href=""><span>收藏本站</span><img  src="img/vister/shoucang.png"/></a>
+				<div id="currentTime"></div>
+			</div>
+			
+			<!--左侧-->
+			<div class="left">
+				<ul>
+					<li  onclick="bookSearch()"><img src="img/vister/book.png"/><span>图书查询</span></li>
+					<li onclick="bookAdd()"><img src="img/vister/load.png"/><span>图书增加</span></li>
+					<li onclick="bookDel()"><img src="img/vister/load.png"/><span>图书删除</span></li>
+					<li onclick="douBan()"><img src="img/vister/douban.png"/><span>豆瓣在线</span></li>
+					<li onclick="history()"><img src="img/vister/tongji.png"/><span>历史统计</span></li>
+					<li onclick="message()"><img src="img/vister/message.png"/><span>查看留言</span></li>
+				</ul>
+				<div class="tools-s">
+					<span>常用工具</span>
+					<img class='tools-s-1' src="img/vister/down.png"/>
+					<img class='tools-s-2'  src="img/vister/up.png"/>
+				</div>
+				<div class="tools-x">
+					<div class="print" onclick="print()">
+						<img src="img/vister/print.png"/>
+						<span>打印屏幕</span>
+					</div>
+					<div class="help" onclick="weather()">
+						<img src="img/vister/weather.png"/>
+						<span>天气预报</span>
+					</div>
+				</div>
+			</div>
+			
+			<!--右侧-->
+			<div class="right">
+				<iframe src="bookSearch.html" id="mainFrame" width="99%" height="98%"></iframe>
+			</div>
+		</div>
+	</body>
+</html>

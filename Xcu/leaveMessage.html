@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>留言</title>
+		<link rel="stylesheet" type="text/css" href="css/leaveMessage.css"/>
+		<link rel="stylesheet" type="text/css" href="css/amazeui.css"/>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="main">
+			<div id="head">
+				<div class="headcenter">
+					<div class="centerleft">
+						<img src="img/logo.png"/>
+						<img src="img/logo-name.png"/>
+					</div>
+					<ul class="centerright">
+						<li><a href="mainPage.html">首页</a></li>
+						<li><a href="path.html">路线规划</a></li>
+						<li><a href="hot.html">兴趣点</a></li>
+						<li><a href="">查快递</a></li>
+						<li><a href="leaveMessage.html">留言</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="clear">
+				
+			</div>
+			<div id="content">
+				<div class="contentBg">
+					<img src="img/cccb.jpg"/>
+				</div>
+				<div class="leaveMessage">
+					<div class="aboutUs">
+						<h3>关于我们</h3>
+						<p>联系人：高丽洁</p>
+						<p>联系电话:132-7129-0132</p>
+						<p>邮箱：gaolijie1994@163.com</p>
+						<p>平台运行环境：chrome及IE9以上浏览器</p>
+						<p>平台开发环境：HBuilder+chrome</p>
+					</div>
+					<div class="leaveMessageContent">
+						<h3>我 要 留 言</h3>
+						<form class="am-form am-form-horizontal">
+						  <div class="am-form-group">
+						    <label for="doc-ipt-3" class="am-u-sm-2 am-form-label">用户名</label>
+						    <div class="am-u-sm-10">
+						      <input type="text" id="doc-ipt-3" placeholder="输入你的用户名">
+						    </div>
+						  </div>
+						
+						  <div class="am-form-group">
+						    <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">邮箱</label>
+						    <div class="am-u-sm-10">
+						      <input type="email" id="doc-ipt-pwd-2" placeholder="输入你的邮箱">
+						    </div>
+						  </div>
+						
+							 <div class="am-form-group">
+							    <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">留言内容</label>
+							    <div class="am-u-sm-10">
+							      <textarea name="" rows="5" cols="10"></textarea>
+							    </div>
+							  </div>
+							
+						  <div class="am-form-group">
+						    <div class="am-u-sm-4 am-u-sm-offset-9">
+						      <button type="submit" class="am-btn am-btn-secondary am-radius submit">提交留言</button>
+						    </div>
+						  </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		zishiying(".main")
+		function zishiying(who){
+			var pingmukuan = $(window).width();
+			var pingmugao = $(window).height();
+			$(who).width(pingmukuan);
+			$(who).height(pingmugao);
+			
+			$(window).resize(function(){
+				var pingmukuan = $(window).width();
+				var pingmugao = $(window).height();
+				$(who).width(pingmukuan);
+				$(who).height(pingmugao);
+			})
+		}
+	</script>
+</html>

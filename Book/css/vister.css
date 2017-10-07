@@ -1,0 +1,77 @@
+/*页面初始通用样式*/
+*{margin: 0;padding: 0;font:14px/1.5 microsoft yahei;list-style: none;}
+a{text-decoration: none;}
+.main{width: 100%;height: 100%;}
+.anchorBL{display:none;}
+/*顶部*/
+.top{height: 13%;background: #65CAC2;}
+.top .logo{width:180px;float: left;margin: 10px 0 0 30px;}
+.top > #currentTime{font-size:15px;float: right;margin: 50px -80px 0 0;color: #F3E7D1; font-weight: 500;}
+.top .shoucang{float: right;}
+.top .shoucang img{width:30px;height: 30px;}
+.top .shoucang span{}
+
+/*左边栏*/
+.left{float:left;width: 13%;height:87%;background: #4D6276;}
+.left ul li{height:50px; height: 40px;margin-bottom: 8px;cursor: pointer;padding-left: 30px;line-height: 35px;position: relative;}
+.left ul li img{width:24px;height:24px;float: left;line-height: 20px;margin-top: 22px;}
+.left ul li span{font-size: 15px;color: #d7dcdf;padding-left: 6px;line-height: 70px;}
+.tools-s{margin-top:20px;height: 30px;background: #69839E;color:#d7dcdf;}
+.tools-s span{margin-left: 50px;line-height: 30px;;}
+.tools-s img{width: 15px;height: 15px;float: right;margin-top: 8px;margin-right: 5px;}
+.tools-s-2{display: none;} 
+.tools-x{display: none;}
+.tools-x .print span{color: #FFFFFF;float: left;margin:40px 0 0 -35px;font-size: 13px;}
+.tools-x .print img{width:26px;height: 26px;float: left;margin:15px 0 0 27px;}
+.tools-x .help span{font-size:13px;color: #FFFFFF;float: left;margin:40px 0 0 -35px;}
+.tools-x .help img{width:26px;height: 26px;float: left;margin:15px 0 0 27px;}
+.tools-x > div{cursor: pointer;}
+
+/*右边*/
+.right{float:right; width: 87%;height:87%;background: #F6F8F8;}
+.right iframe{border: none;}
+
+
+/*查找书*/
+#searchquButton{position: absolute;top:20px;left: 50px;z-index: 10000;background: #5D96CA;padding: 0 10px;border-radius: 5px;}
+#searchqushow0{position: absolute;    bottom: 10px;right: 20px;z-index: 10000;background: #fff;border-radius: 5px;}
+#searchquButton ul li img{width:24x;height: 24px;}
+#searchquButton ul li {float: left;margin:10px 10px 5px 5px;cursor: pointer;}
+
+/*找书路线*/
+.zslx{width:400px;position: absolute;top:20px;right: 20px;z-index: 999;border-radius: 5px 5px 0 0;background: #fff;}
+.zslxHead{width: 400px;height: 35px;background: #65CAC2;border-radius: 5px 5px 0 0;}
+.zslxHead span{font-size: 16px;height: 35px;line-height: 35px;font-weight: 400;margin: 0 0 0 15px;}
+.zslxHead img{float: right;margin: 10px 15px 0 0;cursor: pointer;}
+.zslxtits input{width: 120px;margin-left: 8px;}
+.zslxtitx input{width: 70px;}
+.zslxtits ,.zslxtitx{height: 30px;margin-top: 10px;}
+.zslxtits span{margin-left: 20px;}
+.zslxtitx input{margin: 0 20px;cursor: pointer;border-radius: 3px;}
+.zslxBody >div{max-height: 400px;overflow-y: scroll;overflow-x: hidden;}
+.zslxtitx input:hover{background: #8FAFCD;}
+.zslxBody{font-size: 13px;}
+
+/*历史统计*/
+.historyP{text-align: center;font-size: 18px;margin: 20px 0 0 20px;font-weight: 700;}
+.mainZx{}
+
+#bookAddBody{position: relative;}
+.bookAddDiv{width: 400px;background: #F0F8F7;position: absolute;z-index: 10000;right:50px;top: 80px;height: 160px;border-radius: 5px;}
+.bookAddTitle{width: 400px;border-radius: 5px 5px 0 0;height: 38px;background: #65CAC2;margin-bottom: 10px;}
+.bookAddTitle > span{font-size: 16px;font-weight: 600;height: 38px;line-height: 38px;margin: 0 0 0 15px;;}
+.bookAddTitle >img{float: right;margin: 12px 20px 0 0;cursor: pointer;}
+.bookAddDiv p span{font-size: 14px;}
+.bookAddDiv p{margin: 10px 0 10px 20px;}
+.bookAddBtn{float: right;margin: 5px 20px 0 0;}
+.bookAddBtn >input{width: 50px;margin-left: 20px;cursor: pointer;}
+.bookAddBtn >input:hover{background: #A4CDCA;}
+
+/*图书删除*/
+.bookDelDiv{width: 400px;background: #F0F8F7;position: absolute;z-index: 10000;right:50px;top: 80px;height: 160px;border-radius: 5px;}
+.bookDelHead{width: 400px;border-radius: 5px 5px 0 0;height: 38px;background: #65CAC2;margin-bottom: 10px;}
+.bookDelHead > span{font-size: 16px;font-weight: 600;height: 38px;line-height: 38px;margin: 0 0 0 15px;;}
+.bookDelHead >img{float: right;margin: 12px 20px 0 0;cursor: pointer;}
+.bookDelBtn >input{width: 50px;margin-left: 20px;cursor: pointer;}
+.bookDelBtn >input:hover{background: #A4CDCA;}
+.bookMarsk{background: #fff;z-index: 100;position: absolute;opacity: 0.4;}

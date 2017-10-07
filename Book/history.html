@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图书历史统计</title>
+		<link rel="stylesheet" href="css/vister.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+		<script type="text/javascript" src="js/echarts.min.js" ></script>
+		<script>
+			/*柱状图*/
+			$(document).ready(function(){ 
+				/*第一步*/
+				var myEchart = echarts.init(document.getElementById('mainZx'));
+				
+				/*第二步*/
+				var option = {
+					//标题
+					title:{
+						text:'图书借阅交易量月份统计' 
+					},
+					//工具箱
+					toolbox:{
+						show:true,
+						feature:{
+							saveAsImage:{
+								show:true
+							},
+							dataZoom : {
+						        show : true,
+						        title : {
+						            dataZoom : '区域缩放',
+						            dataZoomReset : '区域缩放后退'
+						        }
+						    },
+							dataView : {
+						        show : true,
+						        title : '数据视图',
+						        readOnly: false,
+						        lang: ['数据视图', '关闭', '刷新']
+						    },
+							//直方图，折线切换
+							magicType:{
+								type:['line','bar','pie']
+							}
+						}
+						
+					},
+					//悬浮提示
+					tooltip:{
+						trigger:'axis'
+					},
+					//图例
+					legend:{
+						data:['借阅交易量']
+					},
+					//X轴
+					xAxis:{
+						data:["8月","9月","10月","11月","12月","1月","2月","3月","4月","5月"]
+					},
+					yAxis:{},
+					//数据
+					series:[{
+						name:'借阅交易量',
+						type:'bar', //line时候是折线图
+						data:[25,20,35,15,23,16,18,32,45,28],
+						//标记点
+						markPoint:{
+							data:[
+								{type:'max',name:'最大借阅交易量'},
+								{type:'min',name:'最小借阅交易量',symbol:'arrow'},//用箭头标记最小值点
+							]
+						},
+						//标记线
+						markLine:{
+							data:[
+								{type:'average',name:'平均值'}
+							]
+						}
+					}]
+				};
+				
+				/*第三步*/
+				myEchart.setOption(option);
+			});
+			
+			
+			$(document).ready(function(){ 
+				/*第一步*/
+				var myEchart = echarts.init(document.getElementById('mainBZT'));
+				
+				/*第二步*/
+				var option = {
+					//标题
+					title:{
+						text:'图书借阅交易区域分布状况',
+						subtext:'按区域统计',
+						x:'center'
+					},
+					//工具箱
+					toolbox:{
+						show:true,
+						feature:{
+							saveAsImage:{
+								show:true
+							}
+						}
+					},
+					//悬浮提示
+					tooltip:{
+						trigger:'item',
+						formatter:'{a}<br/>{b} : {c} ({d}%)' //各项占总的百分比
+					},
+					//图例,打开或者关闭某一项
+					legend:{
+						orient:'vertical',
+						left:'left',
+						data:["魏都区（东区）","许昌县","魏都区（西区）","鄢陵县","长葛市","禹州市"]
+					},
+					//数据
+					series:[{
+						name:'借阅交易量',
+						type:'pie', 
+						radius:'60%',
+						center:['50%','50%'],
+						data:[
+							{value:83,name:'魏都区（东区）'},
+							{value:45,name:'许昌县'},
+							{value:66,name:'魏都区（西区）'},
+							{value:15,name:'鄢陵县'},
+							{value:25,name:'长葛市'},
+							{value:23,name:'禹州市'}
+						]
+					}]
+				};
+				
+				/*第三步*/
+				myEchart.setOption(option);
+			});
+		</script>
+	</head>
+	<body>
+		<p class='historyP'>借阅图书历史统计</p>
+		<!--容器-->
+		<div id="mainZx" style="width:750px;height:400px;margin: 50px 120px;"></div>
+		
+		<div id="mainBZT" style="width:500px;height:500px;margin: 50px 150px;"></div>
+	</body>
+</html>

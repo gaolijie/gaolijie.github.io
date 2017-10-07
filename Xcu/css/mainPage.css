@@ -1,0 +1,102 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+/*头部*/
+
+#head {
+	height: 80px;
+	width: 100%;
+	background-color: #fff;
+}
+
+.headcenter {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.centerleft {
+	float: left;
+}
+
+.centerright {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+.centerright li {
+	list-style: none;
+	display: inline-block;
+}
+
+.centerright li a {
+	color: #333;
+	display: inline-block;
+	width: 120px;
+	height: 80px;
+	line-height: 80px;
+	font-size: 18px;
+	text-align: center;
+}
+
+.centerright li:hover {
+	background-color: #ccc;
+}
+
+/*页面长图*/
+.mainBg{
+	width: 100%;
+	height: 280px;
+	overflow: hidden;
+}
+/*页面内容*/
+.mainContent{
+	width: 1000px;
+	height: 260px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+.content1,.content2,.content3{
+	float: left;
+	
+}
+.content1,.content2{
+	margin-right: 127px;
+}
+.mainContent p a{
+	color: #333;
+	font: 20px  "微软雅黑";
+}
+.content1 p{
+	margin-left: 80px;
+}
+.content2 p{
+	margin-left: 70px;
+}
+.content3 p{
+	margin-left: 30px;
+}
+.line{
+	width: 100%;
+	height: 1px;
+	background-color: #D9DADC;
+	margin-top: 10px;
+}
+.footer{
+	width: 980px;
+	margin: 0 auto;
+}
+.footer span{
+	display: block;
+	line-height: 34px;
+	text-align: center;
+}
+

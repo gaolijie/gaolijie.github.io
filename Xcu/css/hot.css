@@ -1,0 +1,65 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	width: 100%;
+}
+
+.hotpoint {
+	width: 340px;
+	position: absolute;
+	left: 50px;
+	top: 100px;
+}
+
+.searchHead {
+	height: 40px;
+	background-color: #23CCFE;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	position: relative;
+}
+
+.searchHead span {
+	color: #fff;
+	font: 20px "微软雅黑";
+	line-height: 40px;
+	margin-left: 25px;
+}
+
+.searchContent {
+	height: 150px;
+	background-color: #fff;
+	border: 1px solid #23CCFE;
+}
+
+.searchContent span {
+	font: 18px "微软雅黑";
+	line-height: 40px;
+	margin-left: 10px;
+}
+
+.searchContent input {
+	width: 250px;
+	margin: 0 auto;
+}
+
+.searchContent button {
+	width: 130px;
+	margin: 20px auto 0 auto;
+}
+
+.searchHead .am-close {
+	position: absolute;
+	right: 5px;
+	top: 8px;
+}
+
+#searchResult {
+	height: 360px;
+	display: none;
+	overflow: auto;
+	border: 1px solid #23CCFE;
+}

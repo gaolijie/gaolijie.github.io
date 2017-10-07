@@ -1,0 +1,63 @@
+*{margin: 0;padding: 0;list-style: none;}
+a{text-decoration: none;}
+
+#map{width: 100%;}
+.route{
+	width: 340px;
+	position: absolute;
+	left: 50px;
+	top: 100px;
+	}
+.searchBoxHead{
+	height: 40px;
+	background-color: #23CCFE;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	position: relative;
+}
+.searchBoxHead span{
+	color: #fff;
+	font: 18px  "微软雅黑";
+	line-height: 40px;
+	margin-left: 25px;
+}
+.searchBoxHead .am-close{
+	position: absolute;
+	right: 5px;
+	top: 8px;
+}
+.searchBoxContent{
+	height: 180px;
+	background-color: #fff;
+	border: 1px solid #23CCFE;
+}
+.searchBoxContent .am-form{
+	margin-top: 10px;
+}
+.searchBoxContent .am-form .am-u-sm-9{
+	margin-top: 5px;
+}
+#bus,#walk,#car{
+	width: 66px;
+	height: 35px;
+	background-color: #3BB4F2;
+	border: none;
+	color: #fff;
+	margin-left: 11px;
+}
+#routeResult{
+	height: 400px;
+	border: 1px solid #23CCFE;
+	display: none;
+	overflow: auto;
+}
+
+
+
+
+
+
+
+
+
+	

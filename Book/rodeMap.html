@@ -1,0 +1,44 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html,#rodeMap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
+	<link rel="stylesheet" href="css/vister.css" />
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+	<script type="text/javascript" src="js/jquery.easyui.min.js" ></script>
+	<script type="text/javascript" src="js/rodeMap.js" ></script>
+	 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=IGXfZnoEEuXRl3Arf9nR26XeSvL0VvQi"></script>
+	<title>找书路线</title>
+</head>
+<body>
+	<div id="rodeMap"></div>
+	<div class="zslx">
+		<div class="zslxHead">
+			<span>贴心找书路线</span>
+			<img src="img/close.png" alt="" />
+		</div>
+		<div class="zslxtit">
+			<div class="zslxtits">
+				<span>起点:</span><input class="zslxqd" type="text"/>
+				<span>终点:</span><input class="zslxzd" type="text"/>
+			</div>
+			<div class="zslxtitx">
+				<input type="button" class="zslxgj" value="公交"/>
+				<input type="button" class="zslxjc" value="驾车"/>
+				<input type="button" class="zslxbx" value="步行"/>
+			</div>
+		</div>
+		<div class="zslxBody">
+			<div id="zslxBody1">
+			</div>
+			<div id="zslxBody2" style="display: none;">
+			</div>
+			<div id="zslxBody3" style="display: none;">
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

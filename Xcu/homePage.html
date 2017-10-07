@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>宣传页</title>
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/amazeui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/homepage.css"/>
+		<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.fullPage.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/amazeui.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="header">
+			<a href="#" class="logo"></a>
+			<ul class="entry">
+				<li class="entry-login"><a href="#">登录</a></li>
+				<li class="entry-register"><a href="#">注册</a></li>
+			</ul>
+		</div>
+			
+		<!--登陆框-->
+			<form action="mainPage.html">
+				<div class="login-box">
+					<span class="login-head">登&nbsp;&nbsp;录</span>
+					<a href="#" class="login-close am-close am-close-spin am-icon-times am-icon-sm"></a>
+					<div class="am-input-group am-input-group-primary">
+					  <span class="am-input-group-label"><i class="am-icon-user"></i></span>
+					  <input type="text" class="am-form-field" placeholder="请输入用户名">
+					</div>
+					
+					<div class="am-input-group am-input-group-secondary">
+					  <span class="am-input-group-label"><i class="am-icon-lock"></i></span>
+					  <input type="text" class="am-form-field" placeholder="请输入密码">
+					</div>
+					<div class="am-form-group">
+					    <div class="am-u-sm-offset-1 am-u-sm-10">
+					      <div class="checkbox">
+					        <label>
+					          <input type="checkbox"> 记住密码
+					        </label>
+					      </div>
+					      <span class="findPass"><a href="#">找回密码</a></span>
+					    </div>
+					  </div>
+					
+					  <div class="am-form-group">
+					    <div class="am-u-sm-10 am-u-sm-offset-1">
+					      <button type="submit" class="am-btn am-btn-secondary am-btn-block">登录</button>
+					    </div>
+					  </div>
+						<div class="otherLogin">
+							<span>其他登录方式</span>
+							<a href="#" class="am-icon-btn am-primary am-icon-qq"></a>
+							<a href="#" class="am-icon-btn am-secondary am-icon-envelope-square"></a>
+							<a href="#" class="am-icon-btn am-success am-icon-drupal"></a>
+						</div>
+				</div>
+			</form>
+			<!--注册框-->
+			<div class="register-box">
+				<span class="register-head">用&nbsp;户&nbsp;注&nbsp;册</span>
+				<a href="#" class="register-close am-close am-close-spin am-icon-times am-icon-sm"></a>
+				<div class="line"></div>
+				
+				<div class="am-g">
+				  <div class="am-u-md-8 am-u-sm-centered">
+				  	
+				    <form class="am-form" action="mainPage.html">
+				      <fieldset class="am-form-set">
+				        <input type="text" class="am-input-lg" placeholder="取个名字">
+				        <input type="text" class="am-input-lg" placeholder="设个密码">
+				        <input type="email" class="am-input-lg" placeholder="填下邮箱">
+				      </fieldset>
+				      <input class="am-input-lg" type="checkbox"> 我已阅读并同意用户协议
+				      <button type="submit" class="am-btn am-btn-primary am-btn-block">注册个账号</button>
+				    </form>
+				  </div>
+				</div>
+				
+			</div>
+		<div id="FullPageId">
+			<div class="one section">
+				<div class="content">
+					<ul>
+						<li><a href="#"><img src="img/19.jpg"/></a></li>
+						<li><a href="#"><img src="img/10.jpg"/></a></li>
+						<li><a href="#"><img src="img/12b.jpg"/></a></li>
+						<li><a href="#"><img src="img/12a.jpg"/></a></li>
+						<li><a href="#"><img src="img/88.jpg"/></a></li>
+					</ul>
+				</div>
+				<a class="prev" href="#"></a>
+				<a class="next" href="#"></a>
+			</div>
+			<div class="two section">
+				<div class="left">
+					<div class="left-head">
+						
+					</div>
+					<div class="left-content">
+						
+					</div>
+				</div>
+				<div class="img">
+					
+				</div>
+			</div>
+			<div class="three section">
+				<div class="night">
+					<img src="img/32.jpg"/>
+				</div>
+
+				<div class="dining">
+					<img src="img/33.jpg"/>
+				</div>
+				<div class="tree">
+					<img src="img/34.jpg"/>
+				</div>
+			</div>
+			<div class="four section">
+				<div class="bg"></div>
+			</div>
+			<div class="five section">
+				<div class="content">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		//屏幕自适应
+		zishiying(".tempWarp")
+		zishiying(".section")
+		function zishiying(who){
+			var pingmukuan = $(window).width();
+			var pingmugao = $(window).height();
+			$(who).width(pingmukuan);
+			$(who).height(pingmugao);
+			
+			$(window).resize(function(){
+				var pingmukuan = $(window).width();
+				var pingmugao = $(window).height();
+				$(who).width(pingmukuan);
+				$(who).height(pingmugao);
+			})
+		}
+		quee()
+		//$.fn.fullpage.setAutoScrolling(true)
+		function quee(){
+			$("#FullPageId").fullpage({
+				afterLoad:function(anchorLink,index){
+					//当滚到某一屏的时候给这一屏添加一个类，就可以给这一屏添加动画了
+					
+					if (index==2) {	
+						$(".section").eq(1).addClass("current")
+					}
+					if (index==3) {
+						$(".section").eq(2).addClass("current2")
+					}
+//					if (index==4) {
+//						var aa = $(".four .bg")
+//						aa.addClass("fadeIn")
+//					}
+					if (index==5) {
+						var bb = $(".five .content")
+						bb.addClass("flipOutY")
+					}
+				}
+			});
+		}
+		play()
+		function play(){
+			$(".one").slide({mainCell:".content ul",effect:"left",autoPlay:true,trigger:"click"});
+		}
+		login()
+		function login(){
+			$(".entry-login a").click(function(){
+				$(".login-box").show()
+			})
+			loginClose()
+		}
+		
+		function loginClose(){
+			$(".login-close").click(function(){
+				$(".login-box").hide()
+			})
+		}
+		register()
+		function register(){
+			$(".entry-register").click(function(){
+				$(".register-box").show()
+			})
+			registerClose()
+		}
+		function registerClose(){
+			$(".register-close").click(function(){
+				$(".register-box").hide()
+			})
+		}
+	</script>
+</html>
