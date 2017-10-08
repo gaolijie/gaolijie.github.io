@@ -1,0 +1,17 @@
+
+#login p{
+	height: 22px;
+	line-height: 22px;
+	padding: 10px 0 0 25px;
+}
+#login p input{
+	height: 22px;
+	margin-left: 4px;
+	padding: 0 3px;
+}
+#btn {
+	text-align: center;
+}
+#btn a {
+	padding:0 10px;
+}

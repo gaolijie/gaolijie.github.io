@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="default/easyui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/icon.css"/>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	</head>
+	<body>
+		<div id="login" >
+			<p>管理员账号:<input type="text" id="manager" name="manager" /></p>
+			<p>管理员密码:<input type="password" id="password" name="password" /></p>
+			
+		</div>
+		<div id="btn">
+			<a  href="backStage2.html" class="easyui-linkbutton">登录</a>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.easyui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/easyui-lang-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('#login').dialog({
+			width : 300,
+			height : 180,
+			modal : true,
+			title : '管理员登录',
+			iconCls : 'icon-man',
+			buttons : '#btn',
+		})
+		
+		//管理员账号验证
+		$('#manager').validatebox({
+			required : true,
+			missingMessage : '请输入管理员账号',
+			invalidateMessage : '管理员账号不能为空',
+		})
+		//管理员密码验证
+		$('#password').validatebox({
+			required : true,
+			validType : 'length[6,30]',
+			missingMessage : '请输入管理员密码',
+			invalidateMessage : '管理员密码不能为空',
+		})
+		//加载时判断验证
+		if(!$('#manager').validatebox('isValid')){
+			$('#manager').focus();
+		}else if (!$('#password').validatebox('isValid')) {
+			$('#password').focus();
+		} 
+		//点击登录验证
+		$('#btn a').click(function(){
+			if(!$('#manager').validatebox('isValid')){
+				$('#manager').focus();
+			}else if (!$('#password').validatebox('isValid')) {
+				$('#password').focus();
+			} else{
+				alert('提交中...');
+			}
+		});
+	</script>
+</html>

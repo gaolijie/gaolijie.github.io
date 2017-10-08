@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="default/easyui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/icon.css"/>
+		<link rel="stylesheet" type="text/css" href="css/backStage.css"/>
+	</head>
+	<body class="easyui-layout">
+		<div class="north" region="north" title="North Title" split="true" data-options="noheader:true,border:false">
+			<div id="logo">
+				<h1>用户管理系统</h1>
+			</div>
+			<div id="logout">
+				<span>您好！尊敬的管理员。</span>
+				<a href="login.html">退出</a>
+			</div>
+		</div>
+		
+	    
+	    <div class="center" region="center" title="center title" data-options="noheader:true,border:false">
+	    	<div id="tabs" class="easyui-tabs">
+	    		<div id="tab1" title="用户管理">
+	    			<table id="userGrid">
+						<thead>
+							<tr>
+								<th data-options="field:'id',width:50,">编号</th>
+								<th data-options="field:'user',width:100,">姓名</th>
+								<th data-options="field:'email',width:200,">邮箱</th>
+								<th data-options="field:'date',width:80,">注册时间</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>蜡笔小新</td>
+								<td>xiaoxin@163.com</td>
+								<td>2017-10-2</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>樱桃小丸子</td>
+								<td>xiaowanzi@163.com</td>
+								<td>2017-10-3</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>哆啦a梦</td>
+								<td>duola@163.com</td>
+								<td>2017-10-4</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>蜡笔小新</td>
+								<td>xiaoxin@163.com</td>
+								<td>2017-10-5</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>樱桃小丸子</td>
+								<td>xiaowanzi@163.com</td>
+								<td>2017-10-6</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>哆啦a梦</td>
+								<td>duola@163.com</td>
+								<td>2017-10-7</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>蜡笔小新</td>
+								<td>xiaoxin@163.com</td>
+								<td>2017-10-8</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>樱桃小丸子</td>
+								<td>xiaowanzi@163.com</td>
+								<td>2017-10-9</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>哆啦a梦</td>
+								<td>duola@163.com</td>
+								<td>2017-10-10</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>蜡笔小新</td>
+								<td>xiaoxin@163.com</td>
+								<td>2017-10-11</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>樱桃小丸子</td>
+								<td>xiaowanzi@163.com</td>
+								<td>2017-10-12</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>哆啦a梦</td>
+								<td>duola@163.com</td>
+								<td>2017-10-13</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>蜡笔小新</td>
+								<td>xiaoxin@163.com</td>
+								<td>2017-10-14</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>樱桃小丸子</td>
+								<td>xiaowanzi@163.com</td>
+								<td>2017-10-15</td>
+							</tr>
+							<tr>
+								<td>15</td>
+								<td>哆啦a梦</td>
+								<td>duola@163.com</td>
+								<td>2017-10-16</td>
+							</tr>
+							
+						</tbody>
+					</table>
+					<div id="tb">
+						<div class="toolbox">
+							<a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-add" onclick="obj.add();">增加</a>
+							<a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-edit" onclick="obj.edit();">修改</a>
+							<a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-remove" onclick="obj.remove();">删除</a>
+							<a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-save" style="display: none;" id="save" onclick="obj.save();">保存</a>
+							<a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-redo" style="display: none;" id="redo" onclick="obj.redo();">取消编辑</a>
+						</div>
+						<div style="margin-bottom: 5px;margin-left: 25px;color: #333;">
+							<p>查询账号：<input type="text" name="user" class="textbox"/></p>
+							<p>创建时间从：<input type="text" name="dateForm" editable="false" class="easyui-datebox"/></p>
+							<p>到：<input type="text" name="dateTo" editable="false" class="easyui-datebox" /></p>
+							<a  href="#" class="easyui-linkbutton" iconCls="icon-search">查询</a>
+						</div>
+					</div>
+	    		</div>
+	    		<div id="tab2" title="历史记录">tab2</div>
+	    		<div id="tab3" title="留言管理">tab3</div>
+	    		<div id="tab4" title="系统设置">tab4</div>
+	    	</div>
+	    </div>
+	</body>
+	<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.easyui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/easyui-lang-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		obj = {
+			editRow : undefined,
+			add : function(){
+				$('#save,#redo').show()
+				//在行末尾添加一行
+//				$('#userGrid').datagrid('appendRow',{
+//					num : '16',
+//					user : '海绵宝宝',
+//					email : 'haimian@163.com',
+//					date : '2017-10-20',
+//				})
+				if(this.editRow==undefined){
+					//在第一行插入
+					$('#userGrid').datagrid('insertRow',{
+						index : 0,
+						row : {
+	//						num : '16',
+	//						user : '海绵宝宝',
+	//						email : 'haimian@163.com',
+	//						date : '2017-10-20',
+						},
+					})
+					//将第一行设置为可编辑状态
+					$('#userGrid').datagrid('beginEdit',0)
+					this.editRow = 0;
+				}
+			},
+			edit : function(){
+				var rows = $('#userGrid').datagrid('getSelections');
+				if (rows.length==1) {
+					if (this.editRow !=undefined) {
+						$('#userGrid').datagrid('endEdit',this.editRow);
+					}
+					if (this.editRow==undefined) {
+						var index = $('#userGrid').datagrid('getRowIndex',rows[0]);
+						$('#save,#redo').show();
+						$('#userGrid').datagrid('beginEdit',index);
+						this.editRow = index;
+						$('#userGrid').datagrid('unselectRow',index);
+					}
+				} else{
+					$.messager.alert('警告','修改必须或只能选中一行','warning')
+				}
+			},
+			save : function(){
+				$('#userGrid').datagrid('endEdit',this.editRow)   //点击保存按钮之后结束编辑状态
+			},
+			redo : function(){
+				this.editRow = undefined;
+				$('#save,#redo').hide(),
+				$('#userGrid').datagrid('rejectChanges')
+			},
+			remove : function(){
+				var rows = $('#userGrid').datagrid('getSelections');
+				if (rows.length>0) {
+					$.messager.confirm('确定操作','您确定要删除所选记录吗？',function(flag){
+						if(flag){
+							var index = $('#userGrid').datagrid('getRowIndex',rows[0]);
+							$('tbody tr').eq(index).remove();
+						}
+					})
+				}else{
+					$.messager.alert('提示','请选择要删除的记录','info')
+				}
+			}
+		};
+		$('#tabs').tabs({
+			headerWidth : 200,
+			tabHeight : 40,
+			fit : true,
+			border : false,
+			tabPosition : 'left',
+		})
+		$('#userGrid').datagrid({
+			fit : true,
+			title : '用户列表',
+			pagination : true,
+			striped : true,
+			singleSelect : true,
+			fitColumns : true,
+			toolbar : '#tb',
+			columns : [[
+				{	
+					field : 'id',
+					title : '编号',
+					width : 150,
+					align : 'center',
+					editor : {
+						type : 'numberbox',
+						options : {
+							required : true,
+						},
+					},
+				},
+				{	
+					field : 'user',
+					title : '账户',
+					width : 200,
+					align : 'center',
+					editor : {
+						type : 'validatebox',
+						options : {
+							required : true,
+						},
+					},
+				},
+				{
+					field : 'email',
+					title : '邮箱',
+					width : 300,
+					align : 'center',
+					editor : {
+						type : 'validatebox',
+						options : {
+							required : true,
+							validType : 'email',
+						},
+					},
+				},
+				{
+					field : 'date',
+					title : '注册时间',
+					width : 200,
+					align : 'center',
+					editor : {
+						type : 'datebox',
+						options : {
+							editable : false,
+						}
+					},
+				},
+			]],
+			onDblClickRow : function(rowIndex,rowData){
+				if (obj.editRow !=undefined) {
+					$('#userGrid').datagrid('endEdit',obj.editRow);
+				}
+				if (obj.editRow==undefined) {
+					$('#save,#redo').show();
+					$('#userGrid').datagrid('beginEdit',rowIndex);
+					obj.editRow = rowIndex;
+				}
+			},
+			onAfterEdit : function(rowIndex, rowData, changes){
+				obj.editRow = undefined;
+				$('#save,#redo').hide();
+			}
+			
+		})
+	</script>
+</html>
