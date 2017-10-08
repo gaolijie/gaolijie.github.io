@@ -98,12 +98,12 @@ a {
 .htmleaf-header div.nav{
     width: 100vw;
     height: 6em;
-    background: #2c3c51;
+    background: #2C3E50;
 }
 .message1 h1{
     line-height: 2.5em;
-  font-size: 2em;
-  font-family: "Segoe UI", Helvetica, sans-serif;
+  	font-size: 2em;
+  	font-family: "Segoe UI", Helvetica, sans-serif;
     margin-left: 2em;
 }
 .htmleaf-header ul{
@@ -143,7 +143,7 @@ span.job{
 .aboutme span.point{
     font-size: 1.5em;
     padding:  0 .1em;
-    color:burlywood;
+    color:#FAD46A;
 }
 section.message2{
     height: 26em;
@@ -317,7 +317,7 @@ div.skills{
     font-family: '微软雅黑';
     line-height: 4em;
     margin-left: 8em;
-    color:#d7dbdb;
+    color:#F2F5F5;
     width: 100%;
   font-size: 2em;
 }
@@ -350,8 +350,8 @@ div.skills{
   Position:        Absolute;
   Text-align:      Center;
   Display:         Inline-Block;
-  Color:           #d7dbdb;
-  Font-Weight:     100;
+  Color:           #fff;
+  Font-Weight:     400;
   Overflow:        Hidden;
   Text-Overflow:   Ellipsis;
   font-family:  "微软雅黑";
@@ -656,8 +656,8 @@ div.skills{
     background-position: center;
     background-size: 30em;
 }
-.top p{
-    color: cadetblue;
+.top h1{
+    color: #fff;
 }
 .text{
     position: absolute;
